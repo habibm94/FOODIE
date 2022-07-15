@@ -17,7 +17,7 @@ class Foodie extends StatelessWidget {
       title: 'FOODIE',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[50],
-        primaryColor: Colors.redAccent[700],
+        primaryColor: const Color(0xFFFF0000),
 //cardColor: Colors.grey[400]!
       ),
       home: HomeScreen(),

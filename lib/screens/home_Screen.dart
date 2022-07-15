@@ -115,19 +115,29 @@ class HomeDrawer extends StatelessWidget {
           ClipPath(
             clipper: WaveClipperTwo(reverse: false, flip: true),
             child: DrawerHeader(
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
-              child: Center(
-                child: Text(
-                  'FOODIE',
-                  style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                decoration: BoxDecoration(
+                  color: Color(0xFFFF0000),
                 ),
-              ),
-            ),
+                child: Container(
+                  height: 220,
+                  width: 280,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/foodie.PNG',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+                // Center(
+                //   child: Text(
+                //     'FOODIE',
+                //     style: TextStyle(
+                //         fontSize: 35,
+                //         fontWeight: FontWeight.bold,
+                //         color: Colors.white),
+                //   ),
+                // ),
+                ),
           ),
           SizedBox(
             height: 20,

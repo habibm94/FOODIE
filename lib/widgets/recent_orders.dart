@@ -7,7 +7,7 @@ import 'package:foodie/models/user.dart';
 class RecentOrder extends StatelessWidget {
   final User orders;
 
-  RecentOrder({required this.orders});
+  const RecentOrder({required this.orders});
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +15,20 @@ class RecentOrder extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        ///title
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
           child: Text(
             'Recent Order',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-        Container(
+        SizedBox(
           height: 120.0,
           child: ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               return Container(
-                margin: EdgeInsets.all(10.0),
+                margin: const EdgeInsets.all(10.0),
                 width: 280.0,
                 decoration: BoxDecoration(
                     border: Border.all(
@@ -37,6 +38,7 @@ class RecentOrder extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15.0)),
                 child: Row(
                   children: [
+                    ///item image
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
                       child: Image(
@@ -47,16 +49,18 @@ class RecentOrder extends StatelessWidget {
                         width: 100,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
+
+                    ///name
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             userRecentOrder.orders![index].food!.name!,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -89,14 +93,16 @@ class RecentOrder extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30.0),
                         color: Theme.of(context).primaryColor,
                       ),
+                      margin: const EdgeInsets.all(10.0),
+
+                      ///add to cart button
                       child: IconButton(
-                        icon: Icon(Icons.add),
+                        icon: const Icon(Icons.add),
                         onPressed: () {
-                          print('add recent order button got pressed');
+                          print('add your add to cart function here');
                         },
                         iconSize: 30.0,
                       ),
-                      margin: EdgeInsets.all(10.0),
                     )
                   ],
                 ),

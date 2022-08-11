@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:foodie/widgets/authScreensCurveClipper.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
-class LogInScreen extends StatefulWidget {
-  const LogInScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
-  State<LogInScreen> createState() => _LogInScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LogInScreenState extends State<LogInScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   children: [
                     ///title
                     Text(
-                      'Log In',
+                      'Sign up',
                       style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       height: 30,
                     ),
 
-                    ///log in button
+                    ///sign up button
                     Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 20),
@@ -71,7 +71,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         style: ElevatedButton.styleFrom(
                             primary: Theme.of(context).primaryColor),
                         child: const Text(
-                          'Log In',
+                          'Sign Up',
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),

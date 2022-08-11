@@ -14,7 +14,7 @@ class _CartScreenState extends State<CartScreen> {
     final cartitems = cart;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'My Cart',
           style: TextStyle(color: Colors.white),
         ),
@@ -24,20 +24,21 @@ class _CartScreenState extends State<CartScreen> {
         children: [
           Container(
             height: 500,
-            padding: EdgeInsets.only(top: 20, bottom: 10, right: 10, left: 10),
+            padding:
+                const EdgeInsets.only(top: 20, bottom: 10, right: 10, left: 10),
             color: Colors.grey.shade100,
             child: ListView.builder(
               itemBuilder: (context, int index) {
                 return Container(
                     height: 120,
                     margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 10,
                     ),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               blurRadius: 6,
                               color: Colors.black26,
@@ -47,41 +48,45 @@ class _CartScreenState extends State<CartScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        ///image
                         ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
                             cartitems[index].imageUrl!,
                             height: 100,
                             width: 130,
                             fit: BoxFit.cover,
                           ),
-                          borderRadius: BorderRadius.circular(10),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            ///item name
                             Text(
                               '${cartitems[index].name}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text('${cartitems[index].price} taka',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 )),
+
+                            ///delete icon
                             ElevatedButton(
                               onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                shape: const CircleBorder(),
+                              ),
                               child: Icon(
                                 Icons.delete,
                                 size: 25,
                                 color: Theme.of(context).primaryColor,
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
-                                shape: CircleBorder(),
                               ),
                             )
                           ],
@@ -92,10 +97,13 @@ class _CartScreenState extends State<CartScreen> {
               itemCount: cartitems.length,
             ),
           ),
+
+          ///total amount section
           Container(
             height: 180,
-            padding: EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 30),
-            decoration: BoxDecoration(color: Colors.white, boxShadow: [
+            padding:
+                const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 30),
+            decoration: const BoxDecoration(color: Colors.white, boxShadow: [
               BoxShadow(
                   blurRadius: 6, color: Colors.black26, offset: Offset(0, 2))
             ]),
@@ -104,7 +112,7 @@ class _CartScreenState extends State<CartScreen> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Total:',
                       style:
@@ -117,20 +125,22 @@ class _CartScreenState extends State<CartScreen> {
                     )
                   ],
                 ),
+
+                ///checkout button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text(
+                      style: ElevatedButton.styleFrom(
+                          primary: Theme.of(context).primaryColor),
+                      child: const Text(
                         'Checkout',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                             color: Colors.white),
                       ),
-                      style: ElevatedButton.styleFrom(
-                          primary: Theme.of(context).primaryColor),
                     )
                   ],
                 )

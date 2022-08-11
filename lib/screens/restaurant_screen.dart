@@ -167,7 +167,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                 ),
                 itemBuilder: (BuildContext ctx, int index) {
                   return Stack(
-                    fit: StackFit.expand,
+                    fit: StackFit.loose,
                     //alignment: Alignment.center,
                     children: [
                       ClipRRect(
@@ -180,49 +180,46 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                         ),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      Expanded(
-                        child: Positioned(
-                          child: Column(
-                            children: [
-                              Text(
-                                widget.selectedRestaurant.menu![index].name!,
-                                style: TextStyle(
-                                    fontSize: 25.0,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: false,
-                                maxLines: 2,
-                              ),
-                              Text(
-                                widget.selectedRestaurant.menu![index].price
-                                    .toString(),
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          bottom: 65.0,
-                          left: 50,
+                      Positioned(
+                        bottom: 65.0,
+                        left: 50,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              widget.selectedRestaurant.menu![index].name!,
+                              style: const TextStyle(
+                                  fontSize: 25.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Text(
+                              widget.selectedRestaurant.menu![index].price
+                                  .toString(),
+                              style: const TextStyle(
+                                  fontSize: 20.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
                         ),
                       ),
                       Positioned(
+                        bottom: 8,
+                        left: 98,
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             onPrimary: Colors.white,
-                            shape: CircleBorder(),
+                            shape: const CircleBorder(),
                             primary: Theme.of(context).primaryColor,
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                             size: 40,
                           ),
                         ),
-                        bottom: 8,
-                        left: 98,
                       )
                     ],
                   );

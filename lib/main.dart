@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodie/screens/home_Screen.dart';
+import 'package:foodie/screens/spalsh_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() => runApp(Foodie());
 
 class Foodie extends StatelessWidget {
+  const Foodie({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    ///restricts landscape mode
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -18,9 +22,8 @@ class Foodie extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[50],
         primaryColor: const Color(0xFFFF0000),
-//cardColor: Colors.grey[400]!
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
       builder: (context, child) => ResponsiveWrapper.builder(
         BouncingScrollWrapper.builder(context, child!),
         maxWidth: 1200,
